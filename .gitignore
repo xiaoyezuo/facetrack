@@ -1,2 +1,5 @@
-#ignore the video data files
+#ignore the 300vw data 
 data/
+
+#ignore the output videos
+assets/videos/

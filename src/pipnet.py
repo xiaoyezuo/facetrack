@@ -23,11 +23,8 @@ from PIPNet.lib.mobilenetv3 import mobilenetv3_large
 from ert import extract_first_frame
 
 pipnet_dir = "/home/zuoxy/PIPNet"
-project_dir = "/home/zuoxy/facetrack/"
-# img_path = "/home/zuoxy/PIPNet/images/2.jpg"
-vid_id = "004"
 
-def pipnet_detect(project_dir, vid_id, multiple_faces = False):
+def pipnet_detect(project_dir, vid_path, multiple_faces = False):
     
     experiment_name = 'pip_32_16_60_r101_l2_l1_10_1_nb10'
     data_name = 'data_300W'
@@ -42,7 +39,7 @@ def pipnet_detect(project_dir, vid_id, multiple_faces = False):
     net_stride = cfg.net_stride
     num_nb = cfg.num_nb
 
-    image, gray = extract_first_frame(project_dir, vid_id)
+    image, gray = extract_first_frame(vid_path)
 
     # save_dir = os.path.join('./snapshots', cfg.data_name, cfg.experiment_name)
     save_dir = os.path.join(pipnet_dir, 'snapshots', cfg.data_name, cfg.experiment_name)
@@ -178,5 +175,3 @@ def pipnet_detect(project_dir, vid_id, multiple_faces = False):
     # Combine frame indices, y coordinates, and x coordinates
     points = np.concatenate((frame_indices, y_coords.reshape(num_pts,1), x_coords.reshape(num_pts,1)), axis=1).astype(np.int32)
     return points
-
-# points = pipnet_detect(project_dir, vid_id)

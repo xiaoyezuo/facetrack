@@ -12,13 +12,8 @@ import imutils
 import dlib
 import os
 
-# project_dir =  "/home/zuoxy/facetrack/"
-# vid_id = "004"
 def extract_first_frame(vid_path):
-	# data_dir = project_dir + "data/300vw/300VW_Dataset_2015_12_14/"
-	# vid_path = data_dir + vid_id + "/vid.avi"
-	# img_dir = project_dir + "assets/images/"
-	# capture first frame of video
+	
 	vidcap = cv2.VideoCapture(vid_path)
 	success,image = vidcap.read()
 	# resize it to 256 by 256
@@ -29,14 +24,12 @@ def extract_first_frame(vid_path):
 
 	return image, gray
 
-def ert_detect(project_dir, vid_id=4, custom=False):
-	predictor_path = project_dir + "models/shape_predictor_68_face_landmarks.dat"
-	data_dir = project_dir + "data/300vw/300VW_Dataset_2015_12_14/"
-	vid_path = data_dir + vid_id + "/vid.avi"
+def ert_detect(project_dir, vid_path):
+	
 	img_dir = project_dir + "assets/images/"
 
 	# capture first frame of video, resize it and convert it to grayscale
-	image, gray = extract_first_frame(project_dir, vid_id)
+	image, gray = extract_first_frame(vid_path)
 	cv2.imwrite(img_dir+"input.jpg", image)
 	cv2.imwrite(img_dir+"input_gray.jpg", gray)
 
