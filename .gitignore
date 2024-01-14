@@ -1,5 +1,6 @@
 #ignore the 300vw data 
-data/
+data/300vw/
+data/custom/
 
 #ignore the output videos
 assets/videos/

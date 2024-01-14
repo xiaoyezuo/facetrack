@@ -18,7 +18,7 @@ project_dir = "/home/zuoxy/facetrack/"
 vid_id = "005"
 data_dir = project_dir + "data/"
 # vid_path = data_dir + "300vw/300VW_Dataset_2015_12_14/"
-vid_path = data_dir + "custom/ts.mp4"
+vid_path = data_dir + "custom/bean.mp4"
 
 def tracker(project_dir, vid_path, detector):
 
